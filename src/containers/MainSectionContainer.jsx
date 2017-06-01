@@ -8,7 +8,7 @@ import MainSection from '../components/MainSection'
 const mapStateToProps = (state, ownProps) => ({
     categories: state.categories,
     selectedCategoryId: ownProps.match? +ownProps.match.params.selectedCategoryId : undefined,
-    todoId: ownProps.match ? ownProps.match.params.todoId : undefined
+    editTodoId: ownProps.match ? +ownProps.match.params.todoId : undefined
 })
 
 const mapDispatchToProps = dispatch => ({

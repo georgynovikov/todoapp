@@ -4,8 +4,9 @@ import classnames from 'classnames'
 import TextInput from './TextInput'
 import EditTodo from './EditTodo'
 import { reset } from 'redux-form';
+import { withRouter } from 'react-router-dom';
 
-export default class TodoItem extends Component {
+class TodoItem extends Component {
     static propTypes = {
         todo: PropTypes.object.isRequired,
         editTodo: PropTypes.func.isRequired,
@@ -13,39 +14,19 @@ export default class TodoItem extends Component {
         toggleTodo: PropTypes.func.isRequired
     }
 
-    state = {
-        editing: false
-    }
-
     handleEditButtonClick = () => {
-        this.setState({ editing: true })
-    }
-
-    handleSave = (props) => {
-        const { id, title, description, completed } = props;
-        if (title.length === 0) {
-            this.props.deleteTodo(id)
-        } else {
-            this.props.editTodo(id, title, description, completed)
-        }
-        props.resetForm();
-        this.setState({ editing: false })
+        const todo = this.props.todo;
+        this.props.history.push('/categories/' + todo.categoryId + '/todos/' + todo.id);
     }
 
     render() {
         const { todo, editTodo, toggleTodo } = this.props
 
-        let element
-        if (this.state.editing) {
-            element = (
-                <EditTodo
-                  onSubmit={this.handleSave}
-                  initialValues={{...todo}}
-                  data={{...todo}}/>
-            )
-        } else {
-            element = (
-                <div className="view-todo">
+        return (
+            <li className={classnames({
+              completed: todo.completed
+            })}>
+                              <div className="view-todo">
                   <input className="toggle"
                     type="checkbox"
                     checked={todo.completed}
@@ -65,18 +46,11 @@ export default class TodoItem extends Component {
                     {todo.title}
                   </label>
                   <button className="edit-button"
-                    onClick={this.handleEditButtonClick} />
+                    onClick={this.handleEditButtonClick.bind(this)} />
                 </div>
-            )
-        }
-
-        return (
-            <li className={classnames({
-              completed: todo.completed,
-              editing: this.state.editing
-            })}>
-              {element}
             </li>
         )
     }
 }
+
+export default withRouter(TodoItem)

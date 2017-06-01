@@ -2,6 +2,7 @@ import React from 'react';
 const { DOM: { input, select, textarea } } = React
 import { Field, reduxForm } from 'redux-form';
 import LabelledInput from './LabelledInput';
+import { withRouter } from 'react-router-dom';
 
 const EditTodo = (props) => {
     const {
@@ -13,12 +14,13 @@ const EditTodo = (props) => {
         invalid,
         submitSucceeded,
         submitFailed,
-    } = props;
+        handleCancel
+    } = props;    
 
     return (
-        <form className="editTodo" onSubmit={handleSubmit}>
+        <form className="editTodo" onSubmit={handleSubmit.bind(this)}>
           <button type="submit" className="btnPrimary" disabled={pristine || submitting || invalid}>Save changes</button>
-          <button type="button" className="btn-default" onClick={reset} disabled={pristine || submitting}>Cancel</button>
+          <button type="button" className="btn-default" onClick={handleCancel}>Cancel</button>
           <Field name="title" label="" component={LabelledInput} />
           <div>
             <Field name="completed" id="done" component="input" type="checkbox"/>
@@ -32,6 +34,6 @@ const EditTodo = (props) => {
     )
 };
 
-export default reduxForm({
+export default withRouter(reduxForm({
     form: 'editTodo',
-})(EditTodo);
+})(EditTodo));

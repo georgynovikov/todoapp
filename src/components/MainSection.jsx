@@ -16,7 +16,7 @@ export default class MainSection extends Component {
         categories: PropTypes.array.isRequired,
         actions: PropTypes.object.isRequired,
         selectedCategoryId: PropTypes.number,
-        todoId: PropTypes.number
+        editTodoId: PropTypes.number
     }
     handleSaveCategory = text => {
         if (text.length !== 0) {
@@ -33,8 +33,8 @@ export default class MainSection extends Component {
 
 
     render() {
-        const { categories, actions, selectedCategoryId } = this.props
-        const c = this.props.match;
+        const { categories, actions, selectedCategoryId, editTodoId } = this.props
+
         return (
             <section className="main-section">
         <div className="categories">
@@ -57,7 +57,7 @@ export default class MainSection extends Component {
                 buttonText="Add Todo"
                 actionArgs ={{ categoryId: selectedCategoryId }}  />
             </div>
-            <VisibleTodoList selectedCategoryId={selectedCategoryId} />
+            <VisibleTodoList selectedCategoryId={selectedCategoryId} editTodoId={editTodoId}/>
           </div>
 
         : false

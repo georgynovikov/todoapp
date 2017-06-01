@@ -53,15 +53,13 @@ const todo = (state, action) => {
                 completed: !state.completed
             }
         case EDIT_TODO:
-            return state.map(todo =>
-                todo.id === action.id ? {
-                    ...todo,
-                    title: action.title,
-                    description: action.description,
-                    completed: action.completed
-                } :
-                todo
-            )
+            return {
+                ...state,
+                id: action.id,
+                title: action.title,
+                description: action.description,
+                completed: action.completed
+            }
         default:
             return state
     }
@@ -75,13 +73,12 @@ const todos = (state = initialState, action) => {
                 todo(undefined, action)
             ]
         case EDIT_TODO:
-            return [
-                ...state,
-                todo(undefined, action)
-            ]
+            return state.map(t =>
+                t.id !== action.id ? t : todo(t, action)
+            )
         case TOGGLE_TODO:
             return state.map(t =>
-                todo(t, action)
+                t.id !== action.id ? t : todo(t, action)
             )
         case DELETE_TODO:
             return state.filter(todo =>
