@@ -12,7 +12,7 @@ import {
     Switch,
     Redirect,
 
-} from 'react-router-dom'
+} from 'react-router-dom'   
 
 import CategoryList from '../components/CategoryList'
 import CategoryItem from '../components/CategoryList'
@@ -27,7 +27,7 @@ export default class App extends Component {
                 <Switch>
                         <Route path="/categories/:selectedCategoryId/todos/:todoId"
                             component={MainSectionContainer} />
-                        <Route path="/?categories/:selectedCategoryId"
+                        <Route path="/categories/:selectedCategoryId"
                             component={MainSectionContainer} />
                         <Route path="/"
                             component={MainSectionContainer} />
