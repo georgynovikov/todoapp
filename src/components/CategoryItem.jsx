@@ -74,8 +74,8 @@ class CategoryItem extends Component {
                     collapsed: !category.expanded
                   })}
                     onClick={() => expandCollapseCategory(category.id)} />
-                  <label onClick={this.handleCategoryClick}>
-                    {/*style={styles.categoryText}>*/}
+                  <label onClick={this.handleCategoryClick}
+                    style={styles.categoryText}>
                     {category.text}
                   </label>
                   <button className="edit-button"
