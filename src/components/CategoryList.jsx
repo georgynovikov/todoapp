@@ -69,7 +69,7 @@ export default class CategoryList extends Component {
                 key={category.id}
                 category={category}
                 {...actions}
-                selected={selectedCategoryId !== undefined
+                selected={selectedCategoryId
                   && category.id === selectedCategoryId} />
               {(category.subcategories)
                 ?category.subcategories.map(subcategory =>
@@ -77,7 +77,7 @@ export default class CategoryList extends Component {
                       key={subcategory.id}
                       category={subcategory}
                       {...actions}
-                      selected={selectedCategoryId !== undefined && subcategory.id === selectedCategoryId} />
+                      selected={selectedCategoryId && subcategory.id === selectedCategoryId} />
                   )
                 :false
               }

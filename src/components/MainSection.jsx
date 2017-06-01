@@ -44,7 +44,9 @@ export default class MainSection extends Component {
               buttonText="Add category" />
           </div>
   
-          <CategoryList categories={categories} actions={actions} selectedCategoryId={selectedCategoryId} />
+          <CategoryList categories={categories} 
+            actions={actions} 
+            selectedCategoryId={selectedCategoryId} />
         </div>
       {
         selectedCategoryId
@@ -54,7 +56,7 @@ export default class MainSection extends Component {
                 placeholder="What needs to be done"
                 buttonText="Add Todo" />
             </div>
-            <VisibleTodoList />
+            <VisibleTodoList selectedCategoryId={selectedCategoryId} />
           </div>
 
         : false

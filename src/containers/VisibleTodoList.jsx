@@ -13,8 +13,8 @@ const getVisibleTodos = (todos, filter, categoryId) => {
         return todos.filter(t => t.categoryId === categoryId);
 }
 
-const mapStateToProps = (state) => ({
-    todos: getVisibleTodos(state.todos.present, state.visibilityFilter, state.selection.categoryId)
+const mapStateToProps = (state, ownProps) => ({
+    todos: getVisibleTodos(state.todos.present, state.visibilityFilter, ownProps.match? +ownProps.match.params.selectedCategoryId || state.selection.categoryId : undefined)
 })
 
 const mapDispatchToProps = ({
