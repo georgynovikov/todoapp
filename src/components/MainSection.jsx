@@ -54,7 +54,8 @@ export default class MainSection extends Component {
             <div className="bar">
               <TextInput addAction={actions.addTodo}
                 placeholder="What needs to be done"
-                buttonText="Add Todo" />
+                buttonText="Add Todo"
+                actionArgs ={{ categoryId: selectedCategoryId }}  />
             </div>
             <VisibleTodoList selectedCategoryId={selectedCategoryId} />
           </div>

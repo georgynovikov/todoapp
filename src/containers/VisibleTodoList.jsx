@@ -14,7 +14,7 @@ const getVisibleTodos = (todos, filter, categoryId) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    todos: getVisibleTodos(state.todos.present, state.visibilityFilter, ownProps.match? +ownProps.match.params.selectedCategoryId || state.selection.categoryId : undefined)
+    todos: getVisibleTodos(state.todos.present, state.visibilityFilter, ownProps.match? +ownProps.match.params.selectedCategoryId: undefined)
 })
 
 const mapDispatchToProps = ({

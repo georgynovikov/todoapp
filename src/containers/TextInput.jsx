@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addCategory } from '../actions'
-class TextInput extends Component {
+export default class TextInput extends Component {
     render() {
-        const { dispatch, addAction, actionArgs, placeholder, buttonText } = this.props;
+        const { dispatch, addAction, placeholder, buttonText } = this.props;
         let input
 
         return (
             <div>
-        <form onSubmit={e => {
+        <form onSubmit={(e => {
           e.preventDefault();
+
+          const actionArgs = this.props.actionArgs;
+          
           if (!input.value.trim()) {
             return;
           }
-          var s = {...actionArgs, text: input.value};
+
           if(actionArgs)
             addAction({...actionArgs, text: input.value});
           else
             addAction({text: input.value});
 
           input.value = '';
-        }}>
+        }).bind(this)}>
           <input ref={node => { input = node }}
             placeholder={placeholder} />
           <button type="submit">
@@ -31,13 +34,3 @@ class TextInput extends Component {
         )
     }
 }
-
-const mapStateToProps = (state) => ({
-    actionArgs: {
-        categoryId: state.selection.categoryId
-    }
-})
-
-export default connect(
-    mapStateToProps
-)(TextInput)
