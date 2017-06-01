@@ -1,0 +1,306 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body,
+.m {
+    height: 95%;
+}
+
+.todoapp,
+div[data-reactroot] {
+    height: 100%;
+}
+
+div[data-reactroot] header {
+    height: 10%;
+}
+
+div[data-reactroot] .progress {
+    height: 50px;
+}
+
+.main-section {
+    height: calc(90% - 50px);
+    position: relative;
+}
+
+.todoapp h1 {
+    margin: 10px 10px 10px 20px;
+    width: 90%;
+    position: relative;
+    display: 'inline-block';
+    font-size: xx-large
+}
+
+.bar {
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
+.categories {
+    float: left;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    padding-top: 55px;
+}
+
+.category-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.todo-list {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.todos {
+    float: left;
+    height: 100%;
+    width: 47%;
+    position: relative;
+    padding-top: 55px;
+    padding-left: 20px;
+    margin-left: 2px;
+}
+
+.new-category {
+    display: block;
+    width: 100%;
+}
+
+.new-todo {}
+
+.todoapp {
+    background: #fff;
+    margin: auto;
+    width: 95%;
+    height: 98%;
+}
+
+.todoapp .header {
+    width: 100%;
+    display: inline-flex;
+    float: top;
+    position: relative;
+}
+
+.progress {
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    float: top;
+}
+
+.todoapp .filter {
+    width: 50%;
+    display: inline-flex;
+    float: right;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+input[type="checkbox"]:after {
+    float: left;
+    align-self: center;
+    background-image: url(../images/unchecked-512.png), linear-gradient(135deg, #EEE 0%, #FFF 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: none;
+    height: 32px;
+    width: 32px;
+    content: "";
+    flex: 1;
+}
+
+input[type="checkbox"]:checked:after {
+    background-image: url(../images/checked-512.png), linear-gradient(135deg, #EEE 0%, #FFF 100%);
+}
+
+input[type="checkbox"]:not(:disabled):checked:hover:after {
+    background-image: url(../images/checked-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+input[type="checkbox"]:not(:disabled):hover:after {
+    background-image: url(../images/unchecked-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+.view-todo {
+    width: calc(100% - 20px);
+    margin: 10px 10px 10px 10px;
+    float: left;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    display: flex;
+    align-self: center;
+    position: relative;
+}
+
+.todo-text {
+    width: calc(100% - 20px);
+    color: MidnightBlue;
+    align-self: center;
+    float: left;
+    padding: 10px;
+}
+
+.view-category {
+    width: calc(100% - 20px);
+    margin: 10px 10px 10px 10px;
+    float: right;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    overflow: hidden;
+    display: flex;
+    align-self: center
+}
+
+.category-text {
+    width: calc(100% - 20px);
+    color: red;
+    align-self: center;
+    float: left;
+    padding: 10px;
+}
+
+input[type="checkbox"]:not(:disabled):checked:hover:after {
+    background-image: url(../images/checked-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+.remove-button,
+.plus-button,
+.edit-button {
+    float: right;
+    align-self: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+    border-style: none;
+    height: 32px;
+    width: 32px;
+}
+
+.edit-button {
+    background-image: url(../images/buttons/edit-512.png);
+}
+
+.remove-button {
+    background-image: url(../images/buttons/remove-512.png);
+}
+
+.plus-button {
+    background-image: url(../images/buttons/plus-512.png);
+}
+
+.edit-button:hover {
+    background-image: url(../images/buttons/edit-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+.remove-button:hover {
+    background-image: url(../images/buttons/remove-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+.plus-button:hover {
+    background-image: url(../images/buttons/plus-512.png), linear-gradient(135deg, #aaa 0%, #FFF 100%);
+}
+
+.expanded {
+    background-image: url(../images/down-256.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    border-style: none;
+    width: 32px;
+    height: 32px;
+    border-color: white;
+}
+
+.collapsed {
+    width: 32px;
+}
+
+.toggle {
+    width: 32px;
+}
+
+.show-done {
+    font-size: medium;
+    position: absolute;
+    bottom: 15px;
+    right: 35%;
+}
+
+.search {
+    float: right;
+    margin: 10px 10px 0px 300px;
+    width: 80%;
+    height: 80%;
+}
+
+.clearable-input {
+    position: relative;
+    display: inline-block;
+}
+
+.clearable-input>[data-clear-input] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    font-size: 1.4em;
+    padding: 1em 1em 0 0;
+    line-height: 1em;
+    cursor: pointer;
+}
+
+.clearable-input button {
+    margin: 10px 10px 0px 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-weight: bold;
+    font-size: 1.4em;
+    padding: 1em 1em 0 0;
+    line-height: 1em;
+    cursor: pointer;
+    background-color: transparent;
+    border-style: none;
+    text-align: center;
+    align-self: center;
+}
+
+.editTodo button,
+{
+    margin: 10px;
+    padding: 10px;
+    color: red;
+}
+
+.editTodo {}
+
+.editTodo {}
+
+.editTodo {}
+
+
+/*input[type="checkbox"]:disabled:after{
+    -webkit-filter: opacity(0.4);
+}*/
